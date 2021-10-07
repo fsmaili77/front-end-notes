@@ -120,5 +120,8 @@
       }
     }
   },
-  "defaultProject": "gestionnairenotes"
+  "defaultProject": "gestionnairenotes",
+  "cli": {
+    "analytics": false
+  }
 }
