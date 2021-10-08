@@ -11,8 +11,8 @@ import { EtudiantService } from './etudiant.service';
 })
 export class AppComponent implements OnInit {
   public etudiants: Etudiant[];
-  /* public editEtudiant: Etudiant;
-  public deleteEtudiant: Etudiant; */
+  public editEtudiant: Etudiant;
+  public deleteEtudiant: Etudiant;
 
   constructor(private etudiantService: EtudiantService) { }
 
@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
     this.etudiantService.getEtudiants().subscribe(
       (response: Etudiant[]) => {
         this.etudiants = response;
-        console.log(response);
+        console.log(this.etudiants);
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
@@ -38,11 +38,53 @@ export class AppComponent implements OnInit {
       (response: Etudiant) => {
         console.log(response);
         this.getEtudiants();
+        addForm.reset();
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+        addForm.reset();
+      }
+    );
+  }
+
+  public onUpdateEtudiant(etudiant: Etudiant): void {
+    this.etudiantService.updateEtudiant(etudiant).subscribe(
+      (response: Etudiant) => {
+        console.log(response);
+        this.getEtudiants();
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
       }
-    )
+    );
+  }
+
+  public onDeleteEtudiant(etudiantId: number): void {
+    this.etudiantService.deleteEtudiant(etudiantId).subscribe(
+      (response: void) => {
+        console.log(response);
+        this.getEtudiants();
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+  }
+
+  public searchEtudiants(key: string): void {
+    const results: Etudiant[] = [];
+    for ( const etudiant of this.etudiants) {
+      if (etudiant.nom.toLowerCase().indexOf(key.toLowerCase()) !== -1
+      || etudiant.prenom.toLowerCase().indexOf(key.toLowerCase()) !== -1
+      || etudiant.dateNaissance.toLowerCase().indexOf(key.toLowerCase()) !== -1
+      || etudiant.email.toLowerCase().indexOf(key.toLowerCase()) !== -1) {
+        results.push(etudiant);
+      }
+    }
+    this.etudiants = results;
+    if (results.length === 0 || !key) {
+      this.getEtudiants();
+    }
   }
 
   public onOpenModal(etudiant: Etudiant, mode: string): void {
@@ -55,11 +97,11 @@ export class AppComponent implements OnInit {
       button.setAttribute('data-target', '#addEtudiantModal');
     }
     if (mode === 'edit') {
-      
+      this.editEtudiant = etudiant;
       button.setAttribute('data-target', '#updateEtudiantModal');
     }
     if (mode === 'delete') {
-      
+      this.deleteEtudiant = etudiant;
       button.setAttribute('data-target', '#deleteEtudiantModal');
     }
     container.appendChild(button);

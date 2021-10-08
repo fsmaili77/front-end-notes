@@ -6,11 +6,11 @@
   <div class="collapse navbar-collapse" id="navbarColor02">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" (click)="onOpenModal(null, 'add')">Add Etudiant <span class="sr-only">(current)</span></a>
+        <a class="nav-link" (click)="onOpenModal(null, 'add')" href="#">Ajouter un étudiant <span class="sr-only">(current)</span></a>
      </li>
     </ul>      
     <form class="form-inline my-2 my-lg-0">
-      <input type="search" name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search etudiants..." required>
+      <input type="search" (ngModelChange)="searchEtudiants(key.value)" #key="ngModel" ngModel name="key" id="searchName" class="form-control mr-sm-2" placeholder="Rechercher des étudiants..." required>
    </form>    
   </div>
 </nav>
@@ -46,7 +46,7 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="addEtudiantModalLabel">Add Etudiant</h5>
+                <h5 class="modal-title" id="addEtudiantModalLabel">Ajouter un étudiant</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -73,7 +73,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" id="add-etudiant-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary" >Save changes</button>
+                <button [disabled]="addForm.invalid" (click)= "onAddEtudiant(addForm)" type="submit" class="btn btn-primary" >Save changes</button>
               </div>
             </div>
           </div>
@@ -86,30 +86,31 @@
   <div class="modal-dialog" role="document">
      <div class="modal-content">
         <div class="modal-header">
-           <h5 class="modal-title" id="updateEtudiantModalLabel">Edit Etudiant</h5>
+           <h5 class="modal-title" id="updateEtudiantModalLabel">Edit Etudiant {{ editEtudiant?.nom }}</h5>
            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
            <span aria-hidden="true">&times;</span>
            </button>
         </div>
         <div class="modal-body">
-           <form>
+           <form #editForm="ngForm">
               <div class="form-group">
+                <input type="hidden" ngModel="{{editEtudiant?.id}}" name="id" class="form-control" id="id" placeholder="Email"> 
                  <label for="nom">Nom</label>
-                 <input type="text" name="nom" class="form-control" id="nom" aria-describedby="emailHelp" placeholder="Nom">
+                 <input type="text" ngModel="{{ editEtudiant?.nom }}" name="nom" class="form-control" id="nom" aria-describedby="emailHelp" placeholder="Nom">
               </div>
                 <label for="prenom">Prenom</label>
-                <input type="text" name="prenom" class="form-control" id="prenom" placeholder="Prenom">              
+                <input type="text" ngModel="{{ editEtudiant?.prenom }}" name="prenom" class="form-control" id="prenom" placeholder="Prenom">              
               <div class="form-group">
               </div>
                 <label for="dateNaissance">Date de Naissance</label>
-                <input type="text" name="dateNaissance" class="form-control" id="dateNaissance" placeholder="Date de Naissance">              
+                <input type="text" ngModel="{{ editEtudiant?.dateNaissance }}" name="dateNaissance" class="form-control" id="dateNaissance" placeholder="Date de Naissance">              
               <div class="form-group">
                  <label for="email">Email Address</label>
-                 <input type="email" name="email" class="form-control" id="email" placeholder="Email">
+                 <input type="email" ngModel="{{ editEtudiant?.email }}" name="email" class="form-control" id="email" placeholder="Email">
               </div>            
               <div class="modal-footer">
                  <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
-                 <button data-dismiss="modal" class="btn btn-primary" >Save changes</button>
+                 <button (click)= "onUpdateEtudiant(editForm.value)" data-dismiss="modal" class="btn btn-primary" >Save changes</button>
               </div>
            </form>
         </div>
@@ -128,20 +129,20 @@
            </button>
         </div>
         <div class="modal-body">
-           <p>Are you sure you want to delete etudiant ?</p>
+           <p>Are you sure you want to delete etudiant {{deleteEtudiant?.nom}} ?</p>
            <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-              <button class="btn btn-danger" data-dismiss="modal">Yes</button>
+              <button (click)="onDeleteEtudiant(deleteEtudiant?.id)" class="btn btn-danger" data-dismiss="modal">Yes</button>
            </div>
         </div>
      </div>
   </div>
 </div>
 
-<!-- Notification for no etudiants -->
-<div class="col-lg-12 col-md-12 col-xl-12">
+<!-- Notification lorsqu'il n'y a pas d'étudiants -->
+<div *ngIf="etudiants?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
   <div class="alert alert-info" role="alert">
-    <h4 class="alert-heading">NO ETUDIANTS!</h4>
-    <p>No Etudiants were found.</p>
+    <h4 class="alert-heading">Pas d'étudiants !</h4>
+    <p>Aucun étudiant n'a été trouvé !</p>
   </div>
 </div>
