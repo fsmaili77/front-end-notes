@@ -8,11 +8,14 @@ import { FormsModule } from '@angular/forms';
 import { EtudiantService } from './etudiant.service';
 import { NotesComponent } from './notes/notes/notes.component';
 import { NotesService } from './notes/notes.service';
+import { MatiereComponent } from './matiere/matiere.component';
+import { MatiereService } from './matiere/matiere.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NotesComponent
+    NotesComponent,
+    MatiereComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +23,7 @@ import { NotesService } from './notes/notes.service';
     HttpClientModule,
     FormsModule
   ],
-  providers: [EtudiantService, NotesService],
+  providers: [EtudiantService, NotesService, MatiereService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
