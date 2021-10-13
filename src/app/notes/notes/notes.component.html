@@ -1,4 +1,168 @@
 <p>notes moyenne!</p>
-<div *ngFor= "let note of notes">
-    <div>{{ note.noteMoyenne }}</div>
+
+
+<style>
+    .row {
+        margin-left:-5px;
+        margin-right:-5px;
+    }
+    .column {
+        float: left;
+        width: 50%;
+        padding: 5px;
+    }
+    /* Clearfix (clear floats) */
+    .row::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+        background-color: lightgray;
+    }
+    th, td {
+        text-align: left;
+        padding: 8px;
+    }
+    tr {
+        border: 1px solid #ddd
+    }
+</style>
+
+
+<body>
+
+<h2>Bulletin de notes</h2>
+
+<div class="container">
+
+<div class="row">
+    <div class="column" >
+        <table >
+            <th >Nom:
+                
+            </th>
+        </table>
+    </div>
+    <div class="column">
+        <table>
+            <tr>
+                <th>Collège : Jean Macé</th>
+            </tr>
+            <tr>
+                <td>Bulletin de notes: <b>1ére Trimestre</b></td>
+            </tr>
+            <tr>
+                <td>Elève: <b>Moyenne Generale [ 12 ]</b></td>
+            </tr>
+            <tr>
+                <td>Classe: <b>Moyenne Generale [ 14 ]</b></td>
+            </tr>
+            <tr>
+                <td>Année scolaire : 2021 / 2022</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="column">
+            <table class="table">
+                <thead >  
+                    <th  >Etudiant</th>
+                    <th *ngFor="let note of notes"></th>
+                <tr *ngFor="let etudiant of etudiants">
+                    <td >{{ etudiant.nom }} {{ etudiant.prenom }}</td>
+                    <td>{{ note.nomMatiere }}</td>
+                
+                </tr>
+                </thead>
+                
+            </table>
+            
+
+        </div>
+        <div class="column">
+            <table  class="table">
+                    <thead class="thead-dark">            
+                            <tr>
+                               
+                                <th >Nom</th>
+                                <th >Matière</th>
+                                <th colspan="2">Notes</th>
+                            </tr>
+                            <tr>                
+                                
+                                <th></th> 
+                                <th>Ecrit</th> 
+                                <th>Oral</th>   
+                                <th>Moyenne / Matière</th> 
+                                <th>Moyenne / Classe</th>                         
+                            </tr>
+                        </thead>
+                        <tbody >
+                            <div >
+                                <tr *ngFor="let note of notes">
+                               
+                                <th *ngFor="let etudiant of etudiants"></th>
+                                <!-- <th>{{ etudiant.nom}}</th> -->
+                                
+
+                                
+                                    <td>{{ note.nomMatiere }}</td>
+                                    <td>{{ note.noteEcrit }}</td>
+                                    <td>{{ note.noteOral }}</td>
+                                    <td>{{ note.noteMoyenne }}</td>
+                                    <td>Moyenne classe</td>                               
+                                </tr>
+                                
+                        </div>
+                    </tbody>        
+
+                </table>
+        </div>
+
+    </div>
+   
+</div>
+</div>
+
+<div >
+    <table  class="table">
+        <thead class="thead-dark">
+        <tr>                
+            <th>Matieres</th>  
+            <td></td>
+            <td></td>
+            <th>Notes</th>   
+            <td></td>
+            <td></td>           
+        </tr>
+        </thead>
+        <tbody>
+        <tr>               
+            <td></td>
+            <td><i>Écrit</i></td>
+            <td><i>Oral</i></td>
+            <td><i>Moyenne / Matière</i></td>
+            <td><i>Moyenne / Classe</i></td>              
+            
+        </tr>
+        <tr  *ngFor="let note of notes">
+            <td>{{ note.nomMatiere }}</td>
+            <td>{{ note.noteEcrit }}</td>
+            <td>{{ note.noteOral }}</td>
+            <td>{{ note.noteMoyenne }}</td>
+            <td>Moyenne classe</td> 
+        </tr>
+        </tbody>
+       
+        
+
+    </table>
 </div>

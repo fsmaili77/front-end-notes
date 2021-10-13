@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Etudiant } from './etudiant';
 import { EtudiantService } from './etudiant.service';
+import { Notes } from './notes/notes';
+import { NotesService } from './notes/notes.service';
 
 @Component({
   selector: 'app-root',
@@ -14,10 +16,15 @@ export class AppComponent implements OnInit {
   public editEtudiant: Etudiant;
   public deleteEtudiant: Etudiant;
 
-  constructor(private etudiantService: EtudiantService) { }
+  public notes: Notes[];
+
+  constructor(private etudiantService: EtudiantService, private _notesService: NotesService) { }
 
   ngOnInit() {
     this.getEtudiants();
+    this._notesService.getNotes().subscribe(res => {
+      this.notes = res;
+    })
   }
 
   public getEtudiants(): void {

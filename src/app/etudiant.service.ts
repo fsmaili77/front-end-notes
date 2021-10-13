@@ -12,7 +12,7 @@ export class EtudiantService {
 
     constructor(private http: HttpClient) { }
 
-    public getEtudiants(): Observable<Etudiant[]> {
+    public getEtudiants(): Observable<any> {
         return this.http.get<Etudiant[]>(`${this.apiServerUrl}/etudiant/all`);
     }
     public addEtudiant(etudiant: Etudiant): Observable<Etudiant> {
