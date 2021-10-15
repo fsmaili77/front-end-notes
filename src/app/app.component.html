@@ -1,7 +1,36 @@
-<app-notes></app-notes>
-<!-- <app-matiere></app-matiere> -->
-<app-notes-object></app-notes-object>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+    <ul class="nav flex-column">
+      <li><a routerLink="auth">Authentification</a></li>
+      <li><a routerLink="etudiants">Etudiants</a></li>
+      <li><a routerLink="notes">Notes</a></li>
+      <li><a routerLink="notesObject">Notes Object</a></li>
+    </ul>
+  </div>
+
+</nav>
+
+<div class="container">
+  <div class="row">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<!-- <app-notes></app-notes> -->
+<!-- <app-matiere></app-matiere> -->
+<!-- <app-notes-object></app-notes-object> -->
+
+
+
+
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" style="color: rgba(250, 235, 215, 0.781);" href="#">Gestionnaire de notes</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -16,8 +45,9 @@
       <input type="search" (ngModelChange)="searchEtudiants(key.value)" #key="ngModel" ngModel name="key" id="searchName" class="form-control mr-sm-2" placeholder="Rechercher des étudiants..." required>
    </form>    
   </div>
-</nav>
-<div class="container" id="main-container">
+</nav> -->
+
+<!-- <div class="container" id="main-container">
     <div class="row">
         <div *ngFor="let etudiant of etudiants" class="col-md-6 col-xl-4">
             <div class="card m-b-30">
@@ -33,7 +63,6 @@
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item"><i class=""></i>Date de naissance : <a href="#">{{ etudiant?.dateNaissance }}</a></li>
                     <li class="list-group-item"><i class="fa fa-envelope float-right"></i>Email : <a href="#">{{ etudiant?.email }}</a></li>                   
-                    <!-- <li class="list-group-item"><i class="fa fa-phone float-right"></i>Phone : 000 123-456</li> -->
                 </ul>
                 <div class="card-body">
                     <div class="float-right btn-group btn-group-sm">
@@ -43,9 +72,9 @@
                 </div>
             </div>
         </div>
-
+ -->
         <!-- Ajouter Etudiants Modal -->
-        <div class="modal fade" id="addEtudiantModal" tabindex="-1" role="dialog" aria-labelledby="addEtudiantModalLabel" aria-hidden="true">
+      <!--   <div class="modal fade" id="addEtudiantModal" tabindex="-1" role="dialog" aria-labelledby="addEtudiantModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -80,12 +109,12 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
 
         
 
         <!-- Edit Modal -->
-<div class="modal fade" id="updateEtudiantModal" tabindex="-1" role="dialog" aria-labelledby="etudiantEditModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="updateEtudiantModal" tabindex="-1" role="dialog" aria-labelledby="etudiantEditModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
      <div class="modal-content">
         <div class="modal-header">
@@ -119,10 +148,10 @@
         </div>
      </div>
   </div>
-</div>
+</div> -->
 
 <!-- Delete Modal -->
-<div class="modalright fade" id="deleteEtudiantModal" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel" aria-hidden="true">
+<!-- <div class="modalright fade" id="deleteEtudiantModal" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
      <div class="modal-content">
         <div class="modal-header">
@@ -140,13 +169,13 @@
         </div>
      </div>
   </div>
-</div>
+</div> -->
 
 <!-- Notification lorsqu'il n'y a pas d'étudiants -->
-<div *ngIf="etudiants?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
+<!-- <div *ngIf="etudiants?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
   <div class="alert alert-info" role="alert">
     <h4 class="alert-heading">Pas d'étudiants !</h4>
     <p>Aucun étudiant n'a été trouvé !</p>
   </div>
-</div>
+</div> -->
 

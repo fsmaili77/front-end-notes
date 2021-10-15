@@ -12,19 +12,33 @@ import { MatiereComponent } from './matiere/matiere.component';
 import { MatiereService } from './matiere/matiere.service';
 import { NotesObjectComponent } from './notes-object/notes-object.component';
 import { NotesObjectService } from './notes-object/notes-object.service';
+import { AuthComponent } from './auth/auth.component';
+import { NotesViewComponent } from './notes-view/notes-view.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const appRoutes: Routes = [
+  { path: 'etudiants', component: NotesViewComponent},
+  { path: 'auth', component: AuthComponent},
+  { path: 'notes', component: NotesComponent},
+  { path: 'notesObject', component: NotesObjectComponent},
+  { path: '', component: NotesViewComponent}
+]
 
 @NgModule({
   declarations: [
     AppComponent,
     NotesComponent,
     MatiereComponent,
-    NotesObjectComponent
+    NotesObjectComponent,
+    AuthComponent,
+    NotesViewComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule, 
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [EtudiantService, NotesService, MatiereService, NotesObjectService],
   bootstrap: [AppComponent]

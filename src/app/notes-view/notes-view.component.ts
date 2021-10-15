@@ -1,21 +1,19 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Etudiant } from './etudiant';
-import { EtudiantService } from './etudiant.service';
-import { Notes } from './notes/notes';
-import { NotesService } from './notes/notes.service';
+import { Etudiant } from '../etudiant';
+import { EtudiantService } from '../etudiant.service';
+import { Notes } from '../notes/notes';
+import { NotesService } from '../notes/notes.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-notes-view',
+  templateUrl: './notes-view.component.html',
+  styleUrls: ['./notes-view.component.css']
 })
-export class AppComponent  {
+export class NotesViewComponent implements OnInit {
 
-  constructor() {}
-
-  /* public etudiants: Etudiant[];
+  public etudiants: Etudiant[];
   public editEtudiant: Etudiant;
   public deleteEtudiant: Etudiant;
 
@@ -116,6 +114,6 @@ export class AppComponent  {
     }
     container.appendChild(button);
     button.click();
-  } */
+  }
 
 }
