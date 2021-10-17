@@ -1,15 +1,15 @@
-<p>notes-view works!</p>
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" style="color: rgba(250, 235, 215, 0.781);" href="#">Liste des étudiants</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarColor02">
-      <!-- <ul class="navbar-nav mr-auto">
+      <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" (click)="onOpenModal(null, 'add')" href="#">Ajouter un étudiant <span class="sr-only">(current)</span></a>
+          <a class="nav-link" (click)="onOpenModal(null, 'add')" href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>  Ajouter un étudiant <span class="sr-only">(current)</span></a>
        </li>
-      </ul>  -->     
+      </ul>      
       <form class="form-inline my-2 my-lg-0">
         <input type="search" (ngModelChange)="searchEtudiants(key.value)" #key="ngModel" ngModel name="key" id="searchName" class="form-control mr-sm-2" placeholder="Rechercher des étudiants..." required>
      </form>    
@@ -35,9 +35,9 @@
                   </ul>
                   <div class="card-body">
                       <div class="float-right btn-group btn-group-md">
-                          <a (click)="onOpenModal(null, 'add')" class="btn btn-info" data-placement="top" data-toggle="tooltip" data-original-title="Add"><i class="fa fa-user-plus"></i></a> 
                           <a (click)="onOpenModal(etudiant, 'edit')" class="btn btn-primary tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
-                          <a (click)="onOpenModal(etudiant, 'delete')" class="btn btn-secondary tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-times"></i></a>                                               
+                          <a (click)="onOpenModal(etudiant, 'delete')" class="btn btn-secondary tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-times"></i></a>
+                                               
                       </div>                   
                   </div>
               </div>
@@ -74,8 +74,8 @@
                   </form>              
                 </div>
                 <div class="modal-footer">
-                  <button type="button" id="add-etudiant-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button [disabled]="addForm.invalid" (click)= "onAddEtudiant(addForm)" type="submit" class="btn btn-primary" >Save changes</button>
+                  <button type="button" id="add-etudiant-form" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                  <button [disabled]="addForm.invalid" (click)= "onAddEtudiant(addForm)" type="submit" class="btn btn-primary" >Enregistrer</button>
                 </div>
               </div>
             </div>
@@ -111,8 +111,8 @@
                    <input type="email" ngModel="{{ editEtudiant?.email }}" name="email" class="form-control" id="email" placeholder="Email">
                 </div>            
                 <div class="modal-footer">
-                   <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
-                   <button (click)= "onUpdateEtudiant(editForm.value)" data-dismiss="modal" class="btn btn-primary" >Save changes</button>
+                   <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Fermer</button>
+                   <button (click)= "onUpdateEtudiant(editForm.value)" data-dismiss="modal" class="btn btn-primary" >Enregistrer</button>
                 </div>
              </form>
           </div>
@@ -131,10 +131,10 @@
              </button>
           </div>
           <div class="modal-body">
-             <p>Are you sure you want to delete etudiant {{deleteEtudiant?.nom}} ?</p>
+             <p>Êtes-vous sûr de vouloir supprimer l'étudiant {{deleteEtudiant?.nom}} ?</p>
              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                <button (click)="onDeleteEtudiant(deleteEtudiant?.id)" class="btn btn-danger" data-dismiss="modal">Yes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Non</button>
+                <button (click)="onDeleteEtudiant(deleteEtudiant?.id)" class="btn btn-danger" data-dismiss="modal">Oui</button>
              </div>
           </div>
        </div>

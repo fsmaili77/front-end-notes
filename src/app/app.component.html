@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
     <ul class="nav flex-column">
       <li><a routerLink="auth">Authentification</a></li>
@@ -8,7 +8,50 @@
     </ul>
   </div>
 
-</nav>
+</nav> -->
+
+<!-- Vertical navbar -->
+<div class="vertical-nav bg-white" id="sidebar">
+  <div class="py-4 px-3 mb-4 bg-light">
+    <div class="media d-flex align-items-center"><img src="https://bootstrapious.com/i/snippets/sn-v-nav/avatar.png" alt="..." width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
+      <div class="media-body">
+        <h4 class="m-0">Didier Doe</h4>
+        <p class="font-weight-light text-muted mb-0">Professeur principal</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">Main</p> -->
+
+  <ul class="nav flex-column bg-white mb-0">
+    <li class="nav-item">
+      <a href="#" class="nav-link text-dark font-italic bg-light" routerLink="etudiants">
+                <i class="fa fa-users mr-3 text-primary fa-fw"></i>
+                Étudiants
+            </a>
+    </li>
+    
+    <li class="nav-item">
+      <a href="#" class="nav-link text-dark font-italic" routerLink="notes">
+                <i class="fa fa-file-image-o mr-3 text-primary fa-fw"></i>
+                Bulletins
+            </a>
+    </li>
+    <li class="nav-item">
+      <a href="#" class="nav-link text-dark font-italic" routerLink="notesObject">
+                <i class="fa fa-file-text mr-3 text-primary fa-fw"></i>
+                Notes
+            </a>
+    </li>
+    
+    <li class="nav-item">
+      <a href="#" class="nav-link text-dark font-italic">
+                <i class="fa fa-info-circle mr-3 text-primary fa-fw"></i>
+                Info
+            </a>
+    </li>
+  </ul>
+</div>
 
 <div class="container">
   <div class="row">

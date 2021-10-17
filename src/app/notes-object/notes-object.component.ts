@@ -71,10 +71,11 @@ export class NotesObjectComponent implements OnInit {
   ngOnInit() {
     this.noteByEtudiantVisibility = true;
     this.noteObjectEtudiant = [];
-    //this.getNotesObject();
+    this.getNotesObject();
     this.getMoyenneClasseByMatiereAnglais("Anglais");
     this.getMoyenneClasseByMatiereFrancais("Francais");
     this.getMoyenneClasseByMatiereMath("Math");
+    console.log(this.getNotesObject())
 
     this.listMoyenneClasseParMatiere = [];
     console.log(this.listMoyenneClasseParMatiere)

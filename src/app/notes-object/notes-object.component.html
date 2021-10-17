@@ -12,23 +12,25 @@
 </div>
 
 <p>Moyenne et notes par étudiants :</p>
-<div class="container row">
+<div class="container row" >
     <div class="card col-lg-4" *ngFor="let i = index; let notesObject of noteObjectEtudiant">
         <div class="card-header">
             <div>notes de : {{notesObject.etudiant.nom.toUpperCase()}}, {{notesObject.etudiant.prenom}}</div>
-            <button (click)="setVisibility()">See Notes</button>
+            <button (click)="setVisibility()">Voir les Notes</button>
         </div>
         <div class="card-body" [hidden]="noteByEtudiantVisibility === true">
             <div *ngFor="let note of notesObject.notesList">
-                <p>matière : {{note.nomMatiere}}</p>
+                <p>Matière : {{note.nomMatiere}}</p>
                 <p>Oral : {{note.noteOral}}</p>
                 <p>Écrit : {{note.noteEcrit}}</p>
                 <p>Moyenne : {{note.noteMoyenne}}</p>
+                <p>Classe : </p>
                 <br>
             </div>
         </div>
         <div class="card-footer">
-            <p>Moyenne générale : {{notesObject.moyennGlobale}}</p>
+            <p>Moyenne générale de: {{notesObject.etudiant.nom.toUpperCase()}}, {{notesObject.etudiant.prenom}} </p>
+            <p>{{notesObject.moyennGlobale}}</p>
         </div>
     </div>
 </div>
