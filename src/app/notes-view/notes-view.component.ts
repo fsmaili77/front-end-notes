@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Etudiant } from '../etudiant';
 import { EtudiantService } from '../etudiant.service';
 import { Notes } from '../notes/notes';
@@ -19,7 +20,7 @@ export class NotesViewComponent implements OnInit {
 
   public notes: Notes[];
 
-  constructor(private etudiantService: EtudiantService, private _notesService: NotesService) { }
+  constructor(private etudiantService: EtudiantService, private _notesService: NotesService, private router: Router) { }
 
   ngOnInit() {
     this.getEtudiants();
@@ -114,6 +115,10 @@ export class NotesViewComponent implements OnInit {
     }
     container.appendChild(button);
     button.click();
+  }
+
+  redirectToBulletinEtudiant(id_etudiant: any) {
+    this.router.navigate(['noteOfEtudiant/'+ id_etudiant])
   }
 
 }

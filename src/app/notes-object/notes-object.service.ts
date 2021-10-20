@@ -23,4 +23,8 @@ export class NotesObjectService {
   getMoyenneClasseByMatiere(nom_matiere: string): any{
     return this.http.get<any>(`${this.apiServerUrl}/etudiant/classe/allMoyenne/` + nom_matiere)
   }
+
+  getMoyenneGeneraleClasse(): any {
+    return this.http.get<any>(`${this.apiServerUrl}/etudiant/Etudiant/moyenneGeneraleClasse`)
+  }
 }

@@ -1,5 +1,5 @@
 export interface NotesObject {
-    etudiant: number;
+    etudiant: Object;
     globalList: number;
     moyennGlobale: number;
 }

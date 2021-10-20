@@ -75,7 +75,7 @@ export class NotesObjectComponent implements OnInit {
     this.getMoyenneClasseByMatiereAnglais("Anglais");
     this.getMoyenneClasseByMatiereFrancais("Francais");
     this.getMoyenneClasseByMatiereMath("Math");
-    console.log(this.getNotesObject())
+    /* console.log(this.getNotesObject()); */
 
     this.listMoyenneClasseParMatiere = [];
     console.log(this.listMoyenneClasseParMatiere)
