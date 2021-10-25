@@ -26,6 +26,9 @@ export class NotesObjectComponent implements OnInit {
   moyenneClasseByMatiereFrancais: any;
   moyenneClasseByMatiereAnglais: any;
   moyenneClasseByMatiereMath: any;
+  moyenneClasseByMatiereSVT: any;
+  moyenneClasseByMatiereHistoire: any;
+  moyenneClasseByMatiereSport: any;
 
   public notes: Notes[];
   public etudiants: Etudiant[];
@@ -68,6 +71,24 @@ export class NotesObjectComponent implements OnInit {
       this.listMoyenneClasseParMatiere.push(this.moyenneClasseByMatiereFrancais)
     })
   }
+  public getMoyenneClasseByMatiereSVT(nom_matiere: string) {
+    this.notesObjectService.getMoyenneClasseByMatiere(nom_matiere).toPromise().then((res: any) => {
+      this.getMoyenneClasseByMatiereSVT = res
+      this.listMoyenneClasseParMatiere.push(this.moyenneClasseByMatiereSVT)
+    })
+  }
+  public getMoyenneClasseByMatiereHistoire(nom_matiere: string) {
+    this.notesObjectService.getMoyenneClasseByMatiere(nom_matiere).toPromise().then((res: any) => {
+      this.getMoyenneClasseByMatiereHistoire = res
+      this.listMoyenneClasseParMatiere.push(this.moyenneClasseByMatiereHistoire)
+    })
+  }
+  public getMoyenneClasseByMatiereSport(nom_matiere: string) {
+    this.notesObjectService.getMoyenneClasseByMatiere(nom_matiere).toPromise().then((res: any) => {
+      this.getMoyenneClasseByMatiereSport = res
+      this.listMoyenneClasseParMatiere.push(this.moyenneClasseByMatiereSport)
+    })
+  }
   ngOnInit() {
     this.noteByEtudiantVisibility = true;
     this.noteObjectEtudiant = [];
@@ -75,6 +96,9 @@ export class NotesObjectComponent implements OnInit {
     this.getMoyenneClasseByMatiereAnglais("Anglais");
     this.getMoyenneClasseByMatiereFrancais("Francais");
     this.getMoyenneClasseByMatiereMath("Math");
+    this.getMoyenneClasseByMatiereMath("SVT");
+    this.getMoyenneClasseByMatiereMath("Histoire");
+    this.getMoyenneClasseByMatiereMath("Sport");
     /* console.log(this.getNotesObject()); */
 
     this.listMoyenneClasseParMatiere = [];

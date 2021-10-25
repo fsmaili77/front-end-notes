@@ -107,7 +107,7 @@
     <div class="etudiant">
         <div class="row">
             <div class="col-lg-12 card card-header">
-                <h5>Étudiant :</h5>
+                <h5>Bulletin de l'étudiant :</h5>
                 <div class="card-header">
                     <h4>{{noteObjectEtudiant.etudiant.nom}}, {{noteObjectEtudiant.etudiant.prenom}}</h4>
                 </div>
@@ -141,7 +141,7 @@
                 {{note.noteMoyenne}}
             </div>
         </div>
-        <div class="row" style="border-width: 2px; border-color: black; border-style: solid; border-top: 0px; border-right: 0px; border-left: 0px;">
+        <div class="row" >
             <div class="col-lg-6">
             
             </div>
@@ -152,24 +152,32 @@
                 <b>{{noteObjectEtudiant.moyennGlobale}}</b>
             </div>
         </div>
+        <div class="row">
+            <div class="col-lg-9 card card-header">
+                <b>Moyenne Générale de la classe :</b>
+            </div>
+            <div class="col-lg-3 card card-header">
+                <b>{{moyenneGeneraleClasse}}</b>
+            </div>
+        </div>
         <div class="col-lg-12 card card-header" style="border-width: 2px; border-color: black; border-style: solid; border-top: 0px; border-right: 0px; border-left: 0px;"><br>
-            <b>Classe :</b>
+            <b>Moyenne de la classe par matière :</b><br>
             <div class="row" *ngFor="let moyenneClasse of moyennesClasses">
                 <div class="col-lg-6">
-                    Matière : {{moyenneClasse.nomMatiere}}
+                     {{moyenneClasse.nomMatiere}}
                 </div>
                 <div class="col-lg-6 card card-header">
-                    <b>Moyenne de la classe par matière : {{moyenneClasse.moyenne}}</b>
+                    <b> {{moyenneClasse.moyenne}}</b>
                 </div>
             </div>
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-lg-6 card card-header">
                     <b>Moyenne Générale de la classe :</b>
                 </div>
                 <div class="col-lg-6 card card-header">
                     <b>{{moyenneGeneraleClasse}}</b>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>
