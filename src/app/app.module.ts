@@ -17,11 +17,11 @@ import { NotesViewComponent } from './notes-view/notes-view.component';
 import { RouterModule, Routes } from '@angular/router';
 
 const appRoutes: Routes = [
-  { path: 'etudiants', component: NotesViewComponent},
+ /*  { path: 'etudiants', component: NotesViewComponent},
   { path: 'notes', component: NotesComponent},
   { path: 'notesObject', component: NotesObjectComponent},
   { path: '', component: NotesViewComponent},
-  { path: 'noteOfEtudiant/:id', component: NotesComponent}
+  { path: 'noteOfEtudiant/:id', component: NotesComponent} */
 ]
 
 @NgModule({
@@ -36,8 +36,8 @@ const appRoutes: Routes = [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule, 
-    RouterModule.forRoot(appRoutes)
+    FormsModule/* , 
+    RouterModule.forRoot(appRoutes) */
   ],
   providers: [EtudiantService, NotesService, MatiereService, NotesObjectService],
   bootstrap: [AppComponent]
