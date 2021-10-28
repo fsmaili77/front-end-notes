@@ -1,0 +1,30 @@
+pipeline {
+    agent any
+    triggers {
+        pollSCM('* * * * *')
+    }
+    stages {
+        stage('Build') {
+            steps {
+                sh """
+                    npm i
+                    npm run build
+                """
+            }
+        }
+        stage('Test') {
+            steps {
+                sh """
+                    ng test -- --watch=false
+                """            
+            }
+        }
+        
+        stage('Deploy') {
+            steps { 
+                sh """
+
+                """         
+            }
+        }
+    }
