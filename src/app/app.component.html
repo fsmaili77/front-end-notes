@@ -10,8 +10,8 @@
 
 </nav> -->
 
-<!-- Vertical navbar -->
-<div class="vertical-nav bg-white" id="sidebar">
+<!-- Vertical navbar  -->
+ <!-- <div class="vertical-nav bg-white" id="sidebar">
   <div class="py-4 px-3 mb-4 bg-light">
     <div class="media d-flex align-items-center"><img src="https://bootstrapious.com/i/snippets/sn-v-nav/avatar.png" alt="..." width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
       <div class="media-body">
@@ -21,9 +21,9 @@
     </div>
   </div>
 
-  <!-- <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">Main</p> -->
+  <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">Main</p>
 
-  <ul class="nav flex-column bg-white mb-0">
+ <ul class="nav flex-column bg-white mb-0">
     <li class="nav-item">
       <a href="#" class="nav-link text-dark font-italic bg-light" routerLink="etudiants">
                 <i class="fa fa-users mr-3 text-primary fa-fw"></i>
@@ -31,12 +31,12 @@
             </a>
     </li>
     
-    <!-- <li class="nav-item">
+    <li class="nav-item">
       <a href="#" class="nav-link text-dark font-italic" routerLink="notes">
                 <i class="fa fa-file-image-o mr-3 text-primary fa-fw"></i>
                 Bulletins
             </a>
-    </li> -->
+    </li>
     <li class="nav-item">
       <a href="#" class="nav-link text-dark font-italic" routerLink="notesObject">
                 <i class="fa fa-file-text mr-3 text-primary fa-fw"></i>
@@ -51,172 +51,8 @@
             </a>
     </li>
   </ul>
-</div>
+</div> -->
 
 <div class="container">
     <router-outlet></router-outlet>
 </div>
-
-
-
-
-
-
-
-
-<!-- <app-notes></app-notes> -->
-<!-- <app-matiere></app-matiere> -->
-<!-- <app-notes-object></app-notes-object> -->
-
-
-
-
-<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" style="color: rgba(250, 235, 215, 0.781);" href="#">Gestionnaire de notes</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarColor02">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" (click)="onOpenModal(null, 'add')" href="#">Ajouter un étudiant <span class="sr-only">(current)</span></a>
-     </li>
-    </ul>      
-    <form class="form-inline my-2 my-lg-0">
-      <input type="search" (ngModelChange)="searchEtudiants(key.value)" #key="ngModel" ngModel name="key" id="searchName" class="form-control mr-sm-2" placeholder="Rechercher des étudiants..." required>
-   </form>    
-  </div>
-</nav> -->
-
-<!-- <div class="container" id="main-container">
-    <div class="row">
-        <div *ngFor="let etudiant of etudiants" class="col-md-6 col-xl-4">
-            <div class="card m-b-30">
-                <div class="card-body row">
-                    <div class="col-6">Photo
-                        <a href=""><img src="{{ etudiant?.imageUrl }}" alt="" class="img-fluid rounded-circle w-60"></a>
-                    </div>
-                    <div class="col-6 card-title align-self-center mb-0">
-                        <h5>{{ etudiant?.nom }} {{ etudiant?.prenom }}</h5>
-                        <p class="m-0">6 ème</p>
-                    </div>
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item"><i class=""></i>Date de naissance : <a href="#">{{ etudiant?.dateNaissance }}</a></li>
-                    <li class="list-group-item"><i class="fa fa-envelope float-right"></i>Email : <a href="#">{{ etudiant?.email }}</a></li>                   
-                </ul>
-                <div class="card-body">
-                    <div class="float-right btn-group btn-group-sm">
-                        <a (click)="onOpenModal(etudiant, 'edit')" class="btn btn-primary tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
-                        <a (click)="onOpenModal(etudiant, 'delete')" class="btn btn-secondary tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-times"></i></a>                      
-                    </div>                   
-                </div>
-            </div>
-        </div>
- -->
-        <!-- Ajouter Etudiants Modal -->
-      <!--   <div class="modal fade" id="addEtudiantModal" tabindex="-1" role="dialog" aria-labelledby="addEtudiantModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="addEtudiantModalLabel">Ajouter un étudiant</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <form #addForm="ngForm" (ngSubmit)="onAddEtudiant(addForm)">
-                  <div class="form-group">
-                    <label for="nom">Nom</label>
-                    <input type="text" ngModel name="nom"  class="form-control" id="nom" placeholder="Nom" required >
-                  </div>
-                  <div class="form-group">
-                    <label for="prenom">Prenom</label>
-                    <input type="text" ngModel name="prenom"  class="form-control" id="prenom" placeholder="Prenom" required >
-                  </div>
-                  <div class="form-group">
-                    <label for="dateNaissance">Date de naissance</label>
-                    <input type="text" ngModel name="dateNaissance"  class="form-control" id="dateNaissance" placeholder="Date de naissance" required >
-                  </div>
-                  <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" ngModel name="email"  class="form-control" id="email" placeholder="Email" required >
-                  </div>
-                </form>              
-              </div>
-              <div class="modal-footer">
-                <button type="button" id="add-etudiant-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button [disabled]="addForm.invalid" (click)= "onAddEtudiant(addForm)" type="submit" class="btn btn-primary" >Save changes</button>
-              </div>
-            </div>
-          </div>
-        </div> -->
-
-        
-
-        <!-- Edit Modal -->
-<!-- <div class="modal fade" id="updateEtudiantModal" tabindex="-1" role="dialog" aria-labelledby="etudiantEditModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-     <div class="modal-content">
-        <div class="modal-header">
-           <h5 class="modal-title" id="updateEtudiantModalLabel">Edit Etudiant {{ editEtudiant?.nom }}</h5>
-           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-           <span aria-hidden="true">&times;</span>
-           </button>
-        </div>
-        <div class="modal-body">
-           <form #editForm="ngForm">
-              <div class="form-group">
-                <input type="hidden" ngModel="{{editEtudiant?.id}}" name="id" class="form-control" id="id" placeholder="Email"> 
-                 <label for="nom">Nom</label>
-                 <input type="text" ngModel="{{ editEtudiant?.nom }}" name="nom" class="form-control" id="nom" aria-describedby="emailHelp" placeholder="Nom">
-              </div>
-                <label for="prenom">Prenom</label>
-                <input type="text" ngModel="{{ editEtudiant?.prenom }}" name="prenom" class="form-control" id="prenom" placeholder="Prenom">              
-              <div class="form-group">
-              </div>
-                <label for="dateNaissance">Date de Naissance</label>
-                <input type="text" ngModel="{{ editEtudiant?.dateNaissance }}" name="dateNaissance" class="form-control" id="dateNaissance" placeholder="Date de Naissance">              
-              <div class="form-group">
-                 <label for="email">Email Address</label>
-                 <input type="email" ngModel="{{ editEtudiant?.email }}" name="email" class="form-control" id="email" placeholder="Email">
-              </div>            
-              <div class="modal-footer">
-                 <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
-                 <button (click)= "onUpdateEtudiant(editForm.value)" data-dismiss="modal" class="btn btn-primary" >Save changes</button>
-              </div>
-           </form>
-        </div>
-     </div>
-  </div>
-</div> -->
-
-<!-- Delete Modal -->
-<!-- <div class="modalright fade" id="deleteEtudiantModal" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-     <div class="modal-content">
-        <div class="modal-header">
-           <h5 class="modal-title" id="deleteModelLabel">Delete Etudiant</h5>
-           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-           <span aria-hidden="true">&times;</span>
-           </button>
-        </div>
-        <div class="modal-body">
-           <p>Are you sure you want to delete etudiant {{deleteEtudiant?.nom}} ?</p>
-           <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-              <button (click)="onDeleteEtudiant(deleteEtudiant?.id)" class="btn btn-danger" data-dismiss="modal">Yes</button>
-           </div>
-        </div>
-     </div>
-  </div>
-</div> -->
-
-<!-- Notification lorsqu'il n'y a pas d'étudiants -->
-<!-- <div *ngIf="etudiants?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
-  <div class="alert alert-info" role="alert">
-    <h4 class="alert-heading">Pas d'étudiants !</h4>
-    <p>Aucun étudiant n'a été trouvé !</p>
-  </div>
-</div> -->
-

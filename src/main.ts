@@ -4,6 +4,8 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
+export const url = "http://localhost:8080/"
+
 if (environment.production) {
   enableProdMode();
 }
